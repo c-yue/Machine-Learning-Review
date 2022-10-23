@@ -15,8 +15,8 @@ variables X to output variable Y, with an error e:
 <=> make the cost/loss small
 
 ##### cost function = loss function
-- eg. $MSE=1/m*\sum_{i=1}^m(\hat{y_i}-y_i)$  
-<=> $MSE=1/m*\sum_{i=1}^m(𝑓(x_i)-y_i)$  
+- eg. $MSE=1/m \cdot \sum_{i=1}^m(\hat{y_i}-y_i)$  
+<=> $MSE=1/m \cdot \sum_{i=1}^m(𝑓(x_i)-y_i)$  
 m: the number of samples 
 
 ##### Bias-Variance trade-off
