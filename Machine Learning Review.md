@@ -47,11 +47,22 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
 ##### Maximum Likelihood Estimation
 
 
+
+
+<br>
+
+
+
+
 #### Linear Algorithms
 ##### Linear Regression
 ##### Logistic Regression
 ##### Linear Discriminant Analysis
 
+
+
+
+<br>
 
 
 
@@ -62,6 +73,10 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
 ##### K-Nearest Neighbors
 ##### Support Vector Machines
 
+
+
+
+<br>
 
 
 
