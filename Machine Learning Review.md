@@ -18,6 +18,7 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
 
 ##### Gradient Descent - 梯度下降
 
+![plot](./images/1666532209129.jpg)
 
 - Batch Gradient Descend
 - Stochastic Gradient Descent - SGD - 随机梯度下降
