@@ -71,9 +71,11 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
 
 ##### Ordinary Least Squares
 
+
+
 ##### Maximum Likelihood Estimation
 
-PS: review linear algerbra
+PS: review linear algebra
 
 
 
