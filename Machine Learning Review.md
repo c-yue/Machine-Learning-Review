@@ -76,6 +76,12 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
 ##### Maximum Likelihood Estimation
 
 PS: review linear algebra
+一阶导
+二阶导求法
+正定矩阵
+半正定矩阵
+hassion矩阵
+
 
 
 
@@ -84,6 +90,12 @@ PS: review linear algebra
 
 
 #### Linear Algorithms
+
+- specify linear/nonlinear
+    - 方法一：判别**决策边界是否是直线**。线模型可以是用曲线拟合样本，但是分类的决策边界一定是直线的，例如逻辑回归；
+    - 方法二：区分是否为线性模型，主要是看一个乘法式子中自变量 $x$ 前的系数 $w$ ，**应该是说 $x_i$ 只被一个 $w_i$ 影响，那么此模型为线性模型**，或者判断决策边界是线性的；
+    - 举例： $y=1/[1+exp(w_0+w_1x_1+w_2x_2)]$ ，画出 $y$ 和 $x$ 是曲线关系，但是它是线性模型，因为 $w_1x_1$ 中可以观察到 $x_1$ 只被一个 $w_1$ 影响；y=1/[1+ω5exp(ω0+ω1x1+ω2x2)]此模型是非线性模型，观察到 x1 不仅仅被参数 ω1 影响，还被 ω5 影响，如果自变量x被两个以上的参数影响，那么此模型是非线性的；
+
 ##### Linear Regression
 ##### Logistic Regression
 ##### Linear Discriminant Analysis
