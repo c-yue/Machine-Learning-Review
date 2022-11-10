@@ -5,28 +5,28 @@
 
 
 
-#### General
+### General
 
-##### Definition
+#### Definition
 - learn a target function f that maps input  
 variables X to output variable Y, with an error e:  
 $𝑌 = f(𝑋) + 𝑒$
 
-##### Parameters ~= Coeficient ~= Weight
+#### Parameters ~= Coeficient ~= Weight
 - $\theta$
 - they determine $f$
 
-##### Goal
+#### Goal
 - find the best parameters making the $f$ works best  
 <=> make the cost/loss small
 
-##### Cost Function = Loss Function
+#### Cost Function = Loss Function
 - $J$, $J(\theta)$
 - eg. $MSE=1/m \cdot \sum_{i=1}^m(\hat{y_i}-y_i)$  
 <=> $MSE=1/m \cdot \sum_{i=1}^m(𝑓(x_i)-y_i)$  
 $m$: the number of samples 
 
-##### Bias-Variance trade-off
+#### Bias-Variance trade-off
 Bias: 偏见，预测结果与实际结果的不同  
 Variance: 方差，预测结果本身的波动（受自变量影响）
 
@@ -36,9 +36,9 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
 
 
 
-#### Optimization
+### Optimization
 
-##### Gradient Descent - 梯度下降
+#### Gradient Descent - 梯度下降
 
 - Aim: minimize the cost function, eg. MSE  
 
@@ -71,7 +71,7 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
     - Until converge condition achieved
 
 
-##### Ordinary Least Squares - 最小二乘法
+#### Ordinary Least Squares - 最小二乘法
 
 - Linear Model: 
     - $h_{\theta}(x_1,x_2,...x_n)=\theta_0+\theta_1x_1+...+\theta_nx_n$  
@@ -101,7 +101,7 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
 
 
 
-##### Maximum Likelihood Estimation
+#### Maximum Likelihood Estimation
 
 PS: review linear algebra
 一阶导
@@ -117,7 +117,7 @@ hassion矩阵
 
 
 
-#### Linear Algorithms
+### Linear Algorithms
 
 - specify linear/nonlinear
     - 方法一：判别**决策边界是否是直线**。线模型可以是用曲线拟合样本，但是分类的决策边界一定是直线的，例如逻辑回归；
@@ -126,9 +126,9 @@ hassion矩阵
     - $y=1/[1+exp(w_0+w_1x_1+w_2x_2)]$ ，画出 $y$ 和 $x$ 是曲线关系，但是它是线性模型，因为 $w_1x_1$ 中可以观察到 $x_1$ 只被一个 $w_1$ 影响；
     - $y=1/[1+w_5 \cdot exp(w_0+w_1x_1+w_2x_2)]$ ，此模型是非线性模型，观察到 $x_1$ 不仅仅被参数 $w_1$ 影响，还被 $w_5$ 影响，如果自变量 $x$ 被两个以上的参数影响，那么此模型是非线性的；
 
-##### Linear Regression
-##### Logistic Regression
-##### Linear Discriminant Analysis
+#### Linear Regression
+#### Logistic Regression
+#### Linear Discriminant Analysis
 
 
 
@@ -136,11 +136,11 @@ hassion矩阵
 
 
 
-#### Nonlinear Algorithms
-##### Classification and Regression Trees
-##### Naive Bayes Classifier
-##### K-Nearest Neighbors
-##### Support Vector Machines
+### Nonlinear Algorithms
+#### Classification and Regression Trees
+#### Naive Bayes Classifier
+#### K-Nearest Neighbors
+#### Support Vector Machines
 
 
 
@@ -150,9 +150,9 @@ hassion矩阵
 
 
 
-#### Ensemble Algorithms
-##### Bagging and Random Forest
-##### Boosting and AdaBoost
+### Ensemble Algorithms
+#### Bagging and Random Forest
+#### Boosting and AdaBoost
 
 
 
