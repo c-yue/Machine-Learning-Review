@@ -75,7 +75,7 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
 
 - Linear Model: 
     - $h_{\theta}(x_1,x_2,...x_n)=\theta_0+\theta_1x_1+...+\theta_nx_n$  
-    - Matrix presentation: $h_{\theta}(x) = X\theta$
+    - Matrix representation: $h_{\theta}(x) = X\theta$
 - Goal: OLS is used to find the estimator/parameters $\theta$
 - Method: 
     - minimizes the sum of squared residuals (Cost MSE)
@@ -94,14 +94,7 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
     - 其中，假设函数 $h_{\theta}(x)$ 为 $m\cdot1$ 的向量， $X$ 为 $m \cdot n$ 的向量， $\theta$ 为 $n\cdot1$ 的向量，里面有 $n$ 个代数法的模型参数。 $m$ 代表样本的个数， $n$ 代表样本的特征数。
 
 
-
-
-
-
-
-
-
-#### Maximum Likelihood Estimation
+#### Maximum Likelihood Estimation - 极大似然估计法
 
 PS: review linear algebra
 一阶导
