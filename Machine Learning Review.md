@@ -85,7 +85,8 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
     - **Cost MSE**: 
     $J(\theta) = 1/2 \cdot(X\theta-Y)^T(X\theta-Y)$
     - **用这个损失函数对向量 $\theta$ 求导取0**:
-    $\frac{\partial }{\partial \theta}J(\theta)=X^T(X\theta-Y)=0$
+    $\frac{\partial }{\partial \theta}J(\theta)=X^T(X\theta-Y)=0$  
+    矩阵求导原理？
     - **Result**:
     $\theta=(X^TX)^{-1}X^TY$
 
