@@ -69,6 +69,9 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
         3. **parameters update**:  
         $\theta = \theta - \eta \cdot g$  
     - Until converge condition achieved
+- 牛顿法比普通梯度下降更快的原因？
+    - 梯度下降的一阶泰勒展开式：https://blog.csdn.net/red_stone1/article/details/80212814
+    - 牛顿法的二阶泰勒展开式：
 
 
 #### Ordinary Least Squares - 最小二乘法
@@ -120,6 +123,15 @@ Recognize linear/nonlinear:
 - $y=1/[1+w_5 \cdot exp(w_0+w_1x_1+w_2x_2)]$ ，此模型是非线性模型，观察到 $x_1$ 不仅仅被参数 $w_1$ 影响，还被 $w_5$ 影响，如果自变量 $x$ 被两个以上的参数影响，那么此模型是非线性的；
 
 #### Linear Regression
+
+- 向量化的好处
+
+- Single 
+- Multiple
+- Polynomial - 多项式回归
+
+- Logistics - 逻辑回归
+
 #### Logistic Regression
 #### Linear Discriminant Analysis
 
