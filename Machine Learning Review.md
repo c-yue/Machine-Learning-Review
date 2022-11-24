@@ -124,7 +124,20 @@ Recognize linear/nonlinear:
 
 #### Linear Regression
 
-- 向量化的好处
+- Vectorization Advantages:
+    ![plot](./images/vectorization.jpg)
+
+    - code shorter
+    - algerbra libraries, GPU computing
+    - calculate faster 
+        - can be run seperately (parallel computing with parallel hardwares, boht in CPU and GPU) 
+        - instead of running loop
+    ![plot](./images/vectorization_efficient.jpg)
+    ![plot](./images/vectorization_efficient2.jpg)
+
+    
+
+
 
 - Single 
 - Multiple
