@@ -171,7 +171,7 @@ Recognize linear/nonlinear:
         - 0 perfect purity, 1 worst purity
     - Gini to replace Entropy
         - shows the **randomness of the sample set**
-        - $ Gini = \sum_{k=1}^n [p_k \cdot(1-p_k)] $
+        - $Gini = \sum_{k=1}^n [p_k \cdot(1-p_k)]$
         - 0 perfect purity, 0.5 worst purity
     - Continuous Features
         - eg. 10 values in the feature, then try 9 split values to split tree
