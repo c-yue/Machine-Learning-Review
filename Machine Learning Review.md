@@ -22,8 +22,8 @@ $𝑌 = f(𝑋) + 𝑒$
 
 #### Cost Function = Loss Function
 - $J$, $J(\theta)$
-- eg. $MSE=1/m \cdot \sum_{i=1}^m(\hat{y_i}-y_i)$  
-<=> $MSE=1/m \cdot \sum_{i=1}^m(𝑓(x_i)-y_i)$  
+- eg. $MSE=1/m \cdot \sum_{i=1}^m(\hat{y_i}-y_i)^2$  
+<=> $MSE=1/m \cdot \sum_{i=1}^m(𝑓(x_i)-y_i)^2$  
 $m$: the number of samples 
 
 #### Bias-Variance trade-off
@@ -205,6 +205,12 @@ Recognize linear/nonlinear:
 
 ### Ensemble Algorithms - 集成算法
 
+- Bagging: 
+    - 是Bootstrap aggregating的意思，各分类器之间无强依赖，可以并行。
+    - reduce variance 方差
+- Boosting: 
+    - 串行的方式训练基分类器，各分类器之间有依赖。
+    - reduce bias 偏差
 
 #### Bagging and Random Forest
 - Bagging
@@ -229,11 +235,38 @@ Recognize linear/nonlinear:
 
 #### Boosting and AdaBoost
 
+- AdaBoost - Adaptive Boosting
+    - 思想：
+        - 对分类正确的样本降低权重
+        - 对错误分类的样本升高或者保持权重不变
+        - 在模型融合过程中，根据错误率对基分类器器进行加权融合，错误率低的分类器拥有更大的“话语权”
+
 #### GBDT and XGBoost
 
+- GBDT - Gradient Boosting Decision Tree
+    - 原理
+        - 模型包含多棵树，每棵树与之前多棵树加和为新模型
+        - 模型的每一轮预测都和真实值有gap，这个gap称为残差
+        - 下一轮的树对残差进行预测
+        - 最后将所有预测结果想加，得到最终结果
+    - **cost func**: $J=1/2 \cdot \sum_{i=1}^m(𝑓(x_i)-y_i)^2$
+    - 目标函数（每棵树拟合的目标）：**残差/J的负梯度**，GBDT每一棵树学习的是**前面所有树预测值加和的残差**
+    - 残差 = -J的梯度：
+        - $g = \frac{\partial J}{\partial F(x_i)} = f(x_i) - y_i$
+        - $y_i - f(x_i) = -g$
+    - **每训练一棵树，拟合残差/J的一阶导，让总模型利用这棵树往J下降的方向走，类似于梯度下降**
+    ![plot](./images/GBDT.jpg)
+    - shrinkage 削弱每棵树的影响
+        - 每次走一小步的方式逐渐逼近真实结果，这样比每次迈一大步的方式更容易避免过拟合
+        - 每棵树加入到前一个模型前增加一个学习率/步长$\eta$
+    - **Steps**:
+    ![plot](./images/GBDT_steps.jpg)
+    - Gradient被用来让cost func快速下降，进而让模型效果Boost
+    - GBDT使用的弱学习器必须是回归树。GBDT用来做回归预测，当然，通过设置阈值也能用于分类任务
 
+- XGBoost
 
-
+        
 
 
 
