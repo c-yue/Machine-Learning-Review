@@ -45,14 +45,12 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
 - Methodology:
     - 梯度的方向是函数增长速度最快的方向，那么**梯度的反方向就是函数减少最快的方向**。那么，如果想**计算一个函数的最小值**，就可以使用梯度下降法的思想来做。
     - 假设希望求解目标函数的最小值： $f({x})=f(x_{1},\cdots,x_{n})$  
-        可以从一个初始点 ${x}^{(0)}=(x_{1}^{(0)},\cdots,x_{n}^{(0)})$ 开始，基于学习率 $\eta$ 构建一个迭代过程：  
-
+        可以从一个初始点 ${x}^{(0)}=(x_{1}^{(0)},\cdots,x_{n}^{(0)})$ 开始，基于学习率 $\eta$ 构建一个**迭代过程**：  
         $x_{1}^{(i+1)} = x_{1}^{(i)} - \eta\cdot \frac{\partial f}{\partial x_{1}}({x}^{(i)})$,  
         $\cdots$  
         $x_{n}^{(i+1)} = x_{n}^{(i)} - \eta\cdot \frac{\partial f}{\partial x_{n}}({x}^{(i)})$  
-        
+    
     - 其中 ${x}^{(i)} = (x_{1}^{(i)},\cdots,x_{n}^{(i)})$ ，一旦达到收敛条件，迭代就结束。
-
     ![plot](./images/gradient_decent.jpg)
 
 - Batch Gradient Descent - 批量梯度下降
@@ -124,16 +122,17 @@ Recognize linear/nonlinear:
 
 #### Linear Regression
 
-- Vectorization Advantages:
+- Vectorization :
+    - Representation
     ![plot](./images/vectorization.jpg)
-
-    - code shorter
-    - algerbra libraries, GPU computing
-    - calculate faster 
-        - can be run seperately (parallel computing with parallel hardwares, boht in CPU and GPU) 
-        - instead of running loop
-    ![plot](./images/vectorization_efficient.jpg)
-    ![plot](./images/vectorization_efficient2.jpg)
+    - Advantages
+        - code shorter
+        - algerbra libraries, GPU computing
+        - calculate faster 
+            - can be run seperately (parallel computing with parallel hardwares, boht in CPU and GPU) 
+            - instead of running loop
+        ![plot](./images/vectorization_efficient.jpg)
+        ![plot](./images/vectorization_efficient2.jpg)
 
 
 
