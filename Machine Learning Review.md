@@ -158,23 +158,39 @@ Recognize linear/nonlinear:
 
 - Decision Tree - 决策树 - for classification
     - Steps for building a decision tree:
-        - Start with all examples at the root node
-        - Calculate **information gain** for splitting **on all possible features**, and **pick the one** with the highest information gain
-        - **Split** dataset according to the selected feature, and create left and right branches of the tree
-        - Keep **repeating** splitting process until **stopping criteria** is met
+        1. Start with all examples at the root node
+        2. Calculate **information gain** for splitting **on all possible features**, and **pick the one** with the highest information gain
+        3. **Split** dataset according to the selected feature, and create left and right branches of the tree
+        4. Keep **repeating** splitting process until **stopping criteria** is met
     - Information Gain
         - the reduction in entropy that you get in your tree resulting from making a split
     - Entropy
-        - shows the randomness of the sample set
+        - shows the **randomness of the sample set**
         - Compute $p_1$, which is the fraction of examples that are edible (i.e. have value = `1` in `y`)
         - Entropy: $H(p_1) = -p_1 {log}_2(p_1) - (1- p_1) {log}_2(1- p_1)$
         - To expand: $H(p_1, p_2, ...p_n) = -p_1 {log}_2(p_1) -p_2 {log}_2(p_2) -...-p_n {log}_2(p_n)$
+        - 0 perfect purity, 1 worst purity
+    - Gini to replace Entropy
+        - shows the **randomness of the sample set**
+        - $ Gini = \sum_{k=1}^n [p_k \cdot(1-p_k)] $
+        - 0 perfect purity, 0.5 worst purity
     - Continuous Features
         - eg. 10 values in the feature, then try 9 split values to split tree
-    - eg.
     ![plot](./images/tree_split.jpg)
+
+- Decision Tree - 决策树 - for regression
+    - Steps diff to classification tree:
+        - **replace Entropy with Variance** to evaluate the Impure/Discrete
+        - or can **replace Entropy with cost/MSE** 
     ![plot](./images/tree_split_regression.jpg)
 
+- Advantages:
+    - Easy to interpret and no overfitting with pruning
+    - Works for both regression and classification problems
+    - Can take any type of variables without modifications, and do not require any data preparation
+
+- Disadvantages:
+    - sensitive to sample changes
 
 #### Naive Bayes Classifier
 #### K-Nearest Neighbors
@@ -188,9 +204,33 @@ Recognize linear/nonlinear:
 
 
 
-### Ensemble Algorithms
+### Ensemble Algorithms - 集成算法
+
+
 #### Bagging and Random Forest
+- Bagging
+    - Deal with DT's sensitivity to sample changes
+    - Bagging can reduce the variance of high-variance models
+    - estimate a quantity from a sample by creating many random subsamples with replacement, and **computing the mean of each subsample model**.
+- sampling with replacement - 有放回地取样
+    - eg. 需取样10个，每次取一个后放回去，取十次，作为一个子样本集
+    ![plot](./images/replace_sampling.jpg)
+- Random Forest Steps
+    1. given training set of size m
+    2. for b = 1 to B:
+        - sampling with replacement to create new training set with size m
+        - given n features, choose $\sqrt{n}$ (for classification) or $n/3$ (for regression) to split decision tree
+        - train decision tree on new data set
+    3. bagged decision trees
+- Feature selection
+    - Bagged method can provide feature importance, by calculating and averaging the error function drop for individual variables
+- Advantage:
+    - Robust to overfitting and missing variables
+    - Can be parallelized for distributed computing
+
 #### Boosting and AdaBoost
+
+#### GBDT and XGBoost
 
 
 
