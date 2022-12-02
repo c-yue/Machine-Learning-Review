@@ -135,8 +135,6 @@ Recognize linear/nonlinear:
     ![plot](./images/vectorization_efficient.jpg)
     ![plot](./images/vectorization_efficient2.jpg)
 
-    
-
 
 
 - Single 
