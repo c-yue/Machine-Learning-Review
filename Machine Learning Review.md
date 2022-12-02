@@ -31,7 +31,7 @@ Bias: 偏见，预测结果与实际结果的不同
 Variance: 方差，预测结果本身的波动（受自变量影响）
 
 
-
+----------------------------------------------------------------
 <br>
 
 
@@ -107,6 +107,7 @@ hassion矩阵
 
 
 
+----------------------------------------------------------------
 <br>
 
 
@@ -147,6 +148,7 @@ Recognize linear/nonlinear:
 
 
 
+----------------------------------------------------------------
 <br>
 
 
@@ -198,12 +200,13 @@ Recognize linear/nonlinear:
 
 
 
+----------------------------------------------------------------
 <br>
 
 
 
 
-### Ensemble Algorithms - 集成算法
+### Ensemble Algorithms - 集成学习
 
 - Bagging: 
     - 是Bootstrap aggregating的意思，各分类器之间无强依赖，可以并行。
@@ -212,7 +215,7 @@ Recognize linear/nonlinear:
     - 串行的方式训练基分类器，各分类器之间有依赖。
     - reduce bias 偏差
 
-#### Bagging and Random Forest
+#### Bagging & Random Forest - Bagging & 随机森林
 - Bagging
     - Deal with DT's sensitivity to sample changes
     - Bagging can reduce the variance of high-variance models
@@ -264,18 +267,14 @@ Recognize linear/nonlinear:
     - Gradient被用来让cost func快速下降，进而让模型效果Boost
     - GBDT使用的弱学习器必须是回归树。GBDT用来做回归预测，当然，通过设置阈值也能用于分类任务
 
-- XGBoost
+- XGBoost - Extreme Gradient Boosting Decision Tree
 
         
 
 
+----------------------------------------------------------------
+<br>
 
-
-
-
-
-PCA & LDA
-降维
 
 
 
@@ -286,10 +285,10 @@ PCA & LDA
 
 
 
-### Feature Selection - 特征选择
+#### Feature Selection - 特征选择
 https://zhuanlan.zhihu.com/p/507101225
 
-#### Filter - 过滤法
+##### Filter - 过滤法
 - Multicollinearity - 删除具有多重共线性的特征 & Correlation - 删除不相关的特征
     - 数值变量：
         - Heatmap 查看各个特征之间/特征与目标变量的相关性
@@ -320,18 +319,18 @@ https://zhuanlan.zhihu.com/p/507101225
     - 特征贡献是否足够大
         - 如果正在运行回归任务，则特征适应度的一个关键指标是回归系数（所谓的 beta 系数），它显示了模型中特征的相对贡献。 有了这些信息，可以删除贡献很小或没有贡献的功能。
 
+##### Wrapper - 包装法
+
+##### Embedded - 嵌入法
+
+##### Dimension Reduction - 降维
+PCA & LDA
+降维
 
 
 
-
-
-#### Wrapper - 包装法
-
-#### Embedded - 嵌入法
-
-#### Dimension Reduction - 降维
-
-
+----------------------------------------------------------------
+<br>
 
 
 
