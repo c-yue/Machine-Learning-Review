@@ -153,7 +153,29 @@ Recognize linear/nonlinear:
 
 
 ### Nonlinear Algorithms
+
 #### Classification and Regression Trees
+
+- Decision Tree - 决策树 - for classification
+    - Steps for building a decision tree:
+        - Start with all examples at the root node
+        - Calculate **information gain** for splitting **on all possible features**, and **pick the one** with the highest information gain
+        - **Split** dataset according to the selected feature, and create left and right branches of the tree
+        - Keep **repeating** splitting process until **stopping criteria** is met
+    - Information Gain
+        - the reduction in entropy that you get in your tree resulting from making a split
+    - Entropy
+        - shows the randomness of the sample set
+        - Compute $p_1$, which is the fraction of examples that are edible (i.e. have value = `1` in `y`)
+        - Entropy: $H(p_1) = -p_1 {log}_2(p_1) - (1- p_1) {log}_2(1- p_1)$
+        - To expand: $H(p_1, p_2, ...p_n) = -p_1 {log}_2(p_1) -p_2 {log}_2(p_2) -...-p_n {log}_2(p_n)$
+    - Continuous Features
+        - eg. 10 values in the feature, then try 9 split values to split tree
+    - eg.
+    ![plot](./images/tree_split.jpg)
+    ![plot](./images/tree_split_regression.jpg)
+
+
 #### Naive Bayes Classifier
 #### K-Nearest Neighbors
 #### Support Vector Machines
