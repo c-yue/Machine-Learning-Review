@@ -68,6 +68,10 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
         $\theta = \theta - \eta \cdot g$  
     - Until converge condition achieved
 - 牛顿法比普通梯度下降更快的原因？
+    - 核心思想，牛顿法用二次函数拟合f，避免梯度下降时下一个点走的太远反而增大了f，反而是让下一个点走到f’’为0的地方
+    ![plot](./images/牛顿法二次函数拟合.jpg)
+    - https://zhuanlan.zhihu.com/p/59873169
+    - https://zhuanlan.zhihu.com/p/37524275
     - 梯度下降的一阶泰勒展开式：https://blog.csdn.net/red_stone1/article/details/80212814
     - 牛顿法的二阶泰勒展开式：
 
@@ -214,6 +218,10 @@ Recognize linear/nonlinear:
 - Boosting: 
     - 串行的方式训练基分类器，各分类器之间有依赖。
     - reduce bias 偏差
+- Stacking
+    - 先用全部数据训练好基模型，然后每个基模型都对每个训练样本进行的预测
+    - 其**预测值将作为训练样本的特征值**，最终会得到新的训练样本
+    - 然后基于新的训练样本进行训练得到模型，然后得到最终预测结果
 
 #### Bagging & Random Forest - Bagging & 随机森林
 - Bagging
@@ -245,31 +253,46 @@ Recognize linear/nonlinear:
         - 在模型融合过程中，根据错误率对基分类器器进行加权融合，错误率低的分类器拥有更大的“话语权”
 
 #### GBDT and XGBoost
+https://zhuanlan.zhihu.com/p/86263786
 
 - GBDT - Gradient Boosting Decision Tree
-    - 原理
-        - 模型包含多棵树，每棵树与之前多棵树加和为新模型
-        - 模型的每一轮预测都和真实值有gap，这个gap称为残差
-        - 下一轮的树对残差进行预测
-        - 最后将所有预测结果想加，得到最终结果
-    - **cost func**: $J=1/2 \cdot \sum_{i=1}^m(𝑓(x_i)-y_i)^2$
-    - 目标函数（每棵树拟合的目标）：**残差/J的负梯度**，GBDT每一棵树学习的是**前面所有树预测值加和的残差**
-    - 残差 = -J的梯度：
-        - $g = \frac{\partial J}{\partial F(x_i)} = f(x_i) - y_i$
-        - $y_i - f(x_i) = -g$
-    - **每训练一棵树，拟合残差/J的一阶导，让总模型利用这棵树往J下降的方向走，类似于梯度下降**
-    ![plot](./images/GBDT.jpg)
-    - shrinkage 削弱每棵树的影响
-        - 每次走一小步的方式逐渐逼近真实结果，这样比每次迈一大步的方式更容易避免过拟合
-        - 每棵树加入到前一个模型前增加一个学习率/步长$\eta$
-    - **Steps**:
-    ![plot](./images/GBDT_steps.jpg)
-    - Gradient被用来让cost func快速下降，进而让模型效果Boost
+
+    - 原理 - GBDT 由三个概念组成
+        - **Regression Decision Tree** - DT
+            - **模型包含多棵树，将所有预测结果想加，得到最终结果**
+            - 模型的每一轮预测都和真实值有gap，这个gap称为残差
+            - **下一轮的树对残差进行预测**
+            - $F_k(x) = \sum_{i=1}^{k}f_{i}(x)$
+            - $F_k(x) = F_{k-1}(x)+f_{k}(x)$
+        - **Gradient Boosting** - GB
+            - 损失函数Loss: $J=\frac{1}{2}(y-F_{k}(x))^2$
+            - **残差**其实是**最小均方损失函数Loss关于预测值的反向梯度**：
+            $-g = -\frac{\partial (\frac{1}{2}(y-F_{k}(x))^2)}{\partial F_k(x)} = y-F_{k}(x)$
+            - 预测值和实际值的残差与损失函数的负梯度相同
+            - **每训练一棵树，拟合残差/L的负梯度，让总模型利用这棵树往L下降的方向走，类似于梯度下降**
+        - **Shrinkage** 削弱每棵树的影响
+            - 每次走一小步的方式逐渐逼近真实结果，这样比每次迈一大步的方式更容易避免过拟合
+            - 每棵树加入到前一个模型前增加一个学习率/步长$\eta$
+            - $F_i(x)=F_{i-1}(x)+\mu f_i(x)$
+    - GBDT 的每一步残差计算其实变相地**增大了被分错样本的权重**，而对于**分对样本的权重趋于0**，这样后面的树就能专注于那些被分错的样本
+    - Gradient被用来让Loss快速下降，进而让模型效果Boost
     - GBDT使用的弱学习器必须是回归树。GBDT用来做回归预测，当然，通过设置阈值也能用于分类任务
+    - **Steps**:
+        ![plot](./images/GBDT_steps.jpg)
 
 - XGBoost - Extreme Gradient Boosting Decision Tree
+    - XGBoost 是大规模并行 boosting tree 的工具
+    - Diff to GBDT
+    https://zhuanlan.zhihu.com/p/42740654
+        - 传统GBDT以CART作为基分类器，XGBoost还**支持线性分类器**，这个时候XGBoost相当于带L1和L2正则化项的逻辑斯蒂回归（分类问题）或者线性回归（回归问题）。
+        - 传统GBDT在优化时只用到一阶导数信息，XGBoost则对代价函数进行了**二阶泰勒展开，同时用到了一阶和二阶导数**。
+        - XGBoost在**代价函数里加入了正则项，用于控制模型的复杂度**。正则项里包含了树的叶子节点个数、每个叶子节点上输出的score的L2模的平方和。从Bias-variance tradeoff角度来讲，正则项降低了模型的variance，使学习出来的模型更加简单，防止过拟合，这也是XGBoost优于传统GBDT的一个特性。
+        - **Shrinkage**（缩减），相当于学习速率（XGBoost中的eta）。XGBoost在进行完一次迭代后，会将叶子节点的权重乘上该系数，主要是为了削弱每棵树的影响，让后面有更大的学习空间。实际应用中，一般把eta设置得小一点，然后迭代次数设置得大一点。（补充：传统GBDT的实现也有学习速率）
+        - **列抽样（column subsampling）**。XGBoost借鉴了**随机森林**的做法，支持列抽样，不仅能降低过拟合，还能减少计算，这也是XGBoost异于传统gbdt的一个特性。
+        - 对**缺失值**的处理。对于特征的值有缺失的样本，XGBoost可以自动学习出它的分裂方向。
+        - XGBoost工具支持**并行**。boosting不是一种串行的结构吗?怎么并行的？注意XGBoost的并行**不是tree粒度的并行，XGBoost也是一次迭代完才能进行下一次迭代的**。XGBoost的并行是在**特征粒度上**的。我们知道，决策树的学习最耗时的一个步骤就是对特征的值进行排序（因为要确定最佳分割点），**XGBoost在训练之前，预先对数据进行了排序，然后保存为block结构，后面的迭代中重复地使用这个结构**，大大减小计算量。**这个block结构也使得并行成为了可能**，在进行节点的分裂时，需要计算每个特征的增益，最终选增益最大的那个特征去做分裂，那么各个特征的增益计算就可以开多线程进行。
 
-        
+
 
 
 ----------------------------------------------------------------
