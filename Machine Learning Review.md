@@ -130,6 +130,7 @@ Recognize linear/nonlinear:
 - Vectorization :
     - Representation
     ![plot](./images/vectorization.jpg)
+    ![plot](./images/matrix_multi.jpg)
     - Advantages
         - code shorter
         - algerbra libraries, GPU computing
@@ -292,6 +293,48 @@ https://zhuanlan.zhihu.com/p/86263786
         - 对**缺失值**的处理。对于特征的值有缺失的样本，XGBoost可以自动学习出它的分裂方向。
         - XGBoost工具支持**并行**。boosting不是一种串行的结构吗?怎么并行的？注意XGBoost的并行**不是tree粒度的并行，XGBoost也是一次迭代完才能进行下一次迭代的**。XGBoost的并行是在**特征粒度上**的。我们知道，决策树的学习最耗时的一个步骤就是对特征的值进行排序（因为要确定最佳分割点），**XGBoost在训练之前，预先对数据进行了排序，然后保存为block结构，后面的迭代中重复地使用这个结构**，大大减小计算量。**这个block结构也使得并行成为了可能**，在进行节点的分裂时，需要计算每个特征的增益，最终选增益最大的那个特征去做分裂，那么各个特征的增益计算就可以开多线程进行。
 
+
+
+
+----------------------------------------------------------------
+<br>
+
+
+
+
+### Nueral Network - 神经网络
+
+#### Basic Nueral Network
+
+- Notation 
+    - layer 0 input with n nodes
+    - layer 1 with $w^{[1]}_{1,2,3,...}$ -> n1 nodes
+    - layer 2 with $w^{[2]}_{1,2,3,...}$ -> n2 nodes
+    ![plot](./images/NN_compute.jpg) 
+
+- Activation Funcs
+    - why use activation?
+        - manay layers come to be one layer -> NN same as linear model
+    - why sigmoid not enough?
+        - It assumes that awareness is maybe binary - either people are aware or they are not
+        - Maybe awareness should be any non negative number
+        - ReLU instead
+        ![plot](./images/sigmoid_not_enough.jpg)
+    - Choosing which to use
+        - target/ouput layer
+            - sigmoid good for binary
+            - original linear for regression
+            - ReLU for none neg prediction
+        - hidden layer - ReLU common
+            - compute faster
+            - learning faster because no flat result in the sigmoid (close to -1/1 when activated values are extreme)
+
+- Multi class & Softmax
+
+
+
+CNN
+![plot](./images/CNN_signal_app.jpg) 
 
 
 
