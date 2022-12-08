@@ -331,7 +331,9 @@ https://zhuanlan.zhihu.com/p/86263786
 
 - Multi class & Softmax
     - softmax
-    ![plot](./images/softmax.jpg) 
+    ![plot](./images/softmax.jpg)
+    <img src="./images/softmax.jpg" width="400" />
+    
     - softmax cost
     ![plot](./images/softmax_cost.jpg) 
 
