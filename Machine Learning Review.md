@@ -330,10 +330,16 @@ https://zhuanlan.zhihu.com/p/86263786
             - learning faster because no flat result in the sigmoid (close to -1/1 when activated values are extreme)
 
 - Multi class & Softmax
+    - softmax
+    ![plot](./images/softmax.jpg) 
+    - softmax cost
+    ![plot](./images/softmax_cost.jpg) 
 
+- Adam Gradient Decent
 
+- Back Propagation
 
-CNN
+#### Converlutional Nueral Network - CNN - 卷积神经网络
 ![plot](./images/CNN_signal_app.jpg) 
 
 
