@@ -51,7 +51,7 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
         $x_{n}^{(i+1)} = x_{n}^{(i)} - \eta\cdot \frac{\partial f}{\partial x_{n}}({x}^{(i)})$  
     
     - 其中 ${x}^{(i)} = (x_{1}^{(i)},\cdots,x_{n}^{(i)})$ ，一旦达到收敛条件，迭代就结束。
-    ![plot](./images/gradient_decent.jpg)
+    <img src="/images/gradient_decent.jpg" width="500" />
 
 - Batch Gradient Descent - 批量梯度下降
     - use samples/batch for every iteration
@@ -69,7 +69,7 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
     - Until converge condition achieved
 - 牛顿法比普通梯度下降更快的原因？
     - 核心思想，牛顿法用二次函数拟合f，避免梯度下降时下一个点走的太远反而增大了f，反而是让下一个点走到f’’为0的地方
-    ![plot](./images/牛顿法二次函数拟合.jpg)
+    <img src="/images/牛顿法二次函数拟合.jpg" width="500" />
     - https://zhuanlan.zhihu.com/p/59873169
     - https://zhuanlan.zhihu.com/p/37524275
     - 梯度下降的一阶泰勒展开式：https://blog.csdn.net/red_stone1/article/details/80212814
@@ -129,16 +129,16 @@ Recognize linear/nonlinear:
 
 - Vectorization :
     - Representation
-    ![plot](./images/vectorization.jpg)
-    ![plot](./images/matrix_multi.jpg)
+    <img src="/images/vectorization.jpg" width="500" />
+    <img src="/images/matrix_multi.jpg" width="500" />
     - Advantages
         - code shorter
         - algerbra libraries, GPU computing
         - calculate faster 
             - can be run seperately (parallel computing with parallel hardwares, boht in CPU and GPU) 
             - instead of running loop
-        ![plot](./images/vectorization_efficient.jpg)
-        ![plot](./images/vectorization_efficient2.jpg)
+        <img src="/images/vectorization_efficient.jpg" width="500" />
+        <img src="/images/vectorization_efficient2.jpg" width="500" />
 
 
 
@@ -182,13 +182,13 @@ Recognize linear/nonlinear:
         - 0 perfect purity, 0.5 worst purity
     - Continuous Features
         - eg. 10 values in the feature, then try 9 split values to split tree
-    ![plot](./images/tree_split.jpg)
+    <img src="/images/tree_split.jpg" width="500" />
 
 - Decision Tree - 决策树 - for regression
     - Steps diff to classification tree:
         - **replace Entropy with Variance** to evaluate the Impure/Discrete
         - or can **replace Entropy with cost/MSE** 
-    ![plot](./images/tree_split_regression.jpg)
+    <img src="/images/tree_split_regression.jpg" width="500" />
 
 - Advantages:
     - Easy to interpret and no overfitting with pruning
@@ -231,7 +231,7 @@ Recognize linear/nonlinear:
     - estimate a quantity from a sample by creating many random subsamples with replacement, and **computing the mean of each subsample model**.
 - sampling with replacement - 有放回地取样
     - eg. 需取样10个，每次取一个后放回去，取十次，作为一个子样本集
-    ![plot](./images/replace_sampling.jpg)
+    <img src="/images/replace_sampling.jpg" width="500" />
 - Random Forest Steps
     1. given training set of size m
     2. for b = 1 to B:
@@ -279,7 +279,7 @@ https://zhuanlan.zhihu.com/p/86263786
     - Gradient被用来让Loss快速下降，进而让模型效果Boost
     - GBDT使用的弱学习器必须是回归树。GBDT用来做回归预测，当然，通过设置阈值也能用于分类任务
     - **Steps**:
-        ![plot](./images/GBDT_steps.jpg)
+        <img src="/images/GBDT_steps.jpg" width="500" />
 
 - XGBoost - Extreme Gradient Boosting Decision Tree
     - XGBoost 是大规模并行 boosting tree 的工具
@@ -310,7 +310,7 @@ https://zhuanlan.zhihu.com/p/86263786
     - layer 0 input with n nodes
     - layer 1 with $w^{[1]}_{1,2,3,...}$ -> n1 nodes
     - layer 2 with $w^{[2]}_{1,2,3,...}$ -> n2 nodes
-    ![plot](./images/NN_compute.jpg) 
+    <img src="/images/NN_compute.jpg" width="500" /> 
 
 - Activation Funcs
     - why use activation?
@@ -319,7 +319,7 @@ https://zhuanlan.zhihu.com/p/86263786
         - It assumes that awareness is maybe binary - either people are aware or they are not
         - Maybe awareness should be any non negative number
         - ReLU instead
-        ![plot](./images/sigmoid_not_enough.jpg)
+        <img src="/images/sigmoid_not_enough.jpg" width="500" />
     - Choosing which to use
         - target/ouput layer
             - sigmoid good for binary
@@ -334,14 +334,14 @@ https://zhuanlan.zhihu.com/p/86263786
     <img src="./images/softmax.jpg" width="500" />
     
     - softmax cost
-    ![plot](./images/softmax_cost.jpg) 
+    <img src="./images/softmax_cost.jpg" width="500" />
 
 - Adam Gradient Decent
 
 - Back Propagation
 
 #### Converlutional Nueral Network - CNN - 卷积神经网络
-![plot](./images/CNN_signal_app.jpg) 
+<img src="/images/CNN_signal_app.jpg" width="500" /> 
 
 
 
