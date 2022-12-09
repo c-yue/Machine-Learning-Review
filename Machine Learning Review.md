@@ -345,8 +345,9 @@ https://zhuanlan.zhihu.com/p/86263786
     - Notation  
     <img src="./images/back_prop.jpg" width="500" />  
     <img src="./images/back_prop_in_nn.jpg" width="500" />  
+    
     - advantage: 每层反向传播都会存储用于下一层，故就算所有输入参数的梯度时，中间梯度不用重复计算（动态规划）
-        <img src="./images/back_prop_efficient.jpg" width="300" />  
+    <img src="./images/back_prop_efficient.jpg" width="300" />  
 
 
 
