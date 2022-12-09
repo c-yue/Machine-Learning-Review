@@ -337,8 +337,19 @@ https://zhuanlan.zhihu.com/p/86263786
     <img src="./images/softmax_cost.jpg" width="500" />
 
 - Adam Gradient Decent
+    - if **a parameter w_j, or b seems to keep on moving in roughly the same direction**. graph_left -> **increase the learning rate for that parameter** & go faster in that direction. 
+    - Conversely, if **a parameter keeps oscillating back and forth**. graph_right -> **reduce Alpha_j for that parameter** &  not have it keep on oscillating or bouncing back and forth.  
+    <img src="./images/adam.jpg" width="500" />
 
 - Back Propagation
+    - Notation
+    <img src="./images/back_prop.jpg" width="500" />
+    <img src="./images/back_prop_in_nn.jpg" width="500" />
+    - advantage: 每层反向传播都会存储用于下一层，故就算所有输入参数的梯度时，中间梯度不用重复计算（动态规划）
+    <img src="./images/back_prop_efficient.jpg" width="300" />
+
+
+
 
 #### Converlutional Nueral Network - CNN - 卷积神经网络
 <img src="/images/CNN_signal_app.jpg" width="500" /> 
