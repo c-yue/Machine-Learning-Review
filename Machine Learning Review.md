@@ -69,7 +69,7 @@ Variance: 方差，预测结果本身的波动（受自变量影响）
     - Until converge condition achieved
 - 牛顿法比普通梯度下降更快的原因？
     - 核心思想，牛顿法用二次函数拟合f，避免梯度下降时下一个点走的太远反而增大了f，反而是让下一个点走到f’’为0的地方
-    <img src="/images/牛顿法二次函数拟合.jpg" width="500" />  
+        <img src="/images/牛顿法二次函数拟合.jpg" width="500" />  
     - https://zhuanlan.zhihu.com/p/59873169
     - https://zhuanlan.zhihu.com/p/37524275
     - 梯度下降的一阶泰勒展开式：https://blog.csdn.net/red_stone1/article/details/80212814
@@ -331,10 +331,10 @@ https://zhuanlan.zhihu.com/p/86263786
 
 - Multi class & Softmax
     - softmax
-    <img src="./images/softmax.jpg" width="500" />  
+        <img src="./images/softmax.jpg" width="500" />  
     
     - softmax cost
-    <img src="./images/softmax_cost.jpg" width="500" />  
+        <img src="./images/softmax_cost.jpg" width="500" />  
 
 - Adam Gradient Decent
     - if **a parameter w_j, or b seems to keep on moving in roughly the same direction**. graph_left -> **increase the learning rate for that parameter** & go faster in that direction. 
@@ -343,16 +343,16 @@ https://zhuanlan.zhihu.com/p/86263786
 
 - Back Propagation
     - Notation
-    <img src="./images/back_prop.jpg" width="500" />  
-    <img src="./images/back_prop_in_nn.jpg" width="500" />  
+        <img src="./images/back_prop.jpg" width="500" />  
+        <img src="./images/back_prop_in_nn.jpg" width="500" />  
     - advantage: 每层反向传播都会存储用于下一层，故就算所有输入参数的梯度时，中间梯度不用重复计算（动态规划）
-    <img src="./images/back_prop_efficient.jpg" width="300" />  
+        <img src="./images/back_prop_efficient.jpg" width="300" />  
 
 
 
 
 #### Converlutional Nueral Network - CNN - 卷积神经网络
-<img src="/images/CNN_signal_app.jpg" width="500" />   
+    <img src="/images/CNN_signal_app.jpg" width="500" />   
 
 
 
