@@ -129,8 +129,8 @@ Recognize linear/nonlinear:
 
 - Vectorization :
     - Representation
-    <img src="/images/vectorization.jpg" width="500" />
-    <img src="/images/matrix_multi.jpg" width="500" />
+    <img src="/images/vectorization.jpg" width="500" />  
+    <img src="/images/matrix_multi.jpg" width="500" />  
     - Advantages
         - code shorter
         - algerbra libraries, GPU computing
