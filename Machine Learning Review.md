@@ -331,10 +331,35 @@ https://zhuanlan.zhihu.com/p/86263786
 
 - Multi class & Softmax
     - softmax  
-    <img src="./images/softmax.jpg" width="500" />  
+        - $a_j = \frac{e^{z_j}}{ \sum_{k=0}^{N-1}{e^{z_k} }}$
+        - $\begin{aligned}
+                \mathbf{a}(x) =
+                \begin{bmatrix}
+                    P(y = 1 | \mathbf{x}; \mathbf{w},b) \\
+                    \vdots \\
+                    P(y = N | \mathbf{x}; \mathbf{w},b)
+                    \end{bmatrix}
+                    =
+                    \frac{1}{ \sum_{k=1}^{N}{e^{z_k} }}
+                    \begin{bmatrix}
+                    e^{z_1} \\
+                    \vdots \\
+                    e^{z_{N}} \\
+                \end{bmatrix} 
+            \end{aligned}$
+
+        <img src="./images/softmax.jpg" width="500" />  
     
     - softmax cost  
-    <img src="./images/softmax_cost.jpg" width="500" />  
+        - $\begin{aligned} 
+                L(\mathbf{a},y)=\begin{cases} 
+                    -log(a_1), & \text{if y=1}.\\
+                        &\vdots\\
+                    -log(a_N), & \text{if y=N} 
+                \end{cases} 
+            \end{aligned}$
+        
+        <img src="./images/softmax_cost.jpg" width="500" />  
 
 - Adam Gradient Decent
     - if **a parameter w_j, or b seems to keep on moving in roughly the same direction**. graph_left -> **increase the learning rate for that parameter** & go faster in that direction. 
@@ -418,6 +443,37 @@ PCA & LDA
 <br>
 
 
+
+### Recommender System - 推荐系统
+
+#### Methodology
+- Retrieval - Candidate Generate
+    - eg. collaborative Filtering, top 10 items in user's 3 hot catogaries
+    - delete duplicates from different retrieval items
+- Ranking
+    - eg. FM/Content based method
+
+#### Collaborative Filtering - 协同过滤
+
+#### Content Based Filtering - 基于内容的过滤
+
+- Generates a user and item feature vector 
+- with user features & item features in Nueral Network
+    - The user features & item features is provided to a neural network which then generates the user and movie vector as shown below.
+    - two networks that are combined by a dot product
+    <img src="./images/content_based_filtering_nn.jpg" width="500" />  
+- Minimize the following cost
+    $$J = \sum_{i,j:r(i,j)=1}(v_u^{j} \cdot v_m^{i} - y^{(i,j)})^2 +\text{regularization}$$
+- Find similar items:
+    - A similarity measure is the squared distance between the two vectors $ v_m^{(k)}$ and $v_m^{(i)}$: $$\left\Vert v_m^{(k)} - v_m^{(i)} \right\Vert^2 = \sum_{l=1}^{n}(v_{m_l}^{(k)} - v_{m_l}^{(i)})^2\tag{1}$$
+
+
+
+
+
+
+----------------------------------------------------------------
+<br>
 
 coefficient 系数 - 例如线性模型
 Correlation 相关性
