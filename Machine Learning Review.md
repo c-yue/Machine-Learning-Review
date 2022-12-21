@@ -465,7 +465,7 @@ PCA & LDA
 - Minimize the following cost
     $$J = \sum_{i,j:r(i,j)=1}(v_u^{j} \cdot v_m^{i} - y^{(i,j)})^2 +\text{regularization}$$
 - Find similar items:
-    - A similarity measure is the squared distance between the two vectors $ v_m^{(k)}$ and $v_m^{(i)}$: $$\left\Vert v_m^{(k)} - v_m^{(i)} \right\Vert^2 = \sum_{l=1}^{n}(v_{m_l}^{(k)} - v_{m_l}^{(i)})^2\tag{1}$$
+    - A similarity measure is the squared distance between the two vectors $v_m^{(k)}$ and $v_m^{(i)}$: $$\left\Vert v_m^{(k)} - v_m^{(i)} \right\Vert^2 = \sum_{l=1}^{n}(v_{m_l}^{(k)} - v_{m_l}^{(i)})^2\tag{1}$$
 
 
 
