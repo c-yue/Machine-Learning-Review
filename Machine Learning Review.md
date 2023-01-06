@@ -116,6 +116,77 @@ hassion矩阵
 
 
 
+
+### Model Selection & Model Evaluation
+
+- **Model selection**: estimating the performance of different
+models (hyperparameters) in order to choose the best  
+- **Model evaluation** (assessment): having chosen a final model,
+estimating its prediction error (generalization error) on new
+data
+
+Validation Sets
+<img src="/images/split_data.jpg" width="500" />  
+
+
+Cross-validation
+- Cut the training set in k separate folds
+- For each fold, train on the (k-1) remaining folds
+In practice: set k=5 or k=10
+<img src="/images/cross_validation_in_practice.jpg" width="500" />  
+
+
+#### Classification Model Evaluation
+
+- Confusion Matrix & Evaluation Metrics 
+    <!-- <img src="/images/confusion_matrix.jpg" width="500" />   -->
+    <img src="/images/confusion_matrix_and_evaluation_metrics.jpg" width="500" />  
+
+    - False positives (false alarms) are also called type I errors
+    False negatives (misses) are also called type II errors
+
+    - 在模型预测是正例的所有结果中，模型预测对的比重
+    Precision = Positive predictive value (PPV): $PPV=\frac{TP}{TP + FP}$  # of predicted positives
+    
+    - 在真实值是正例的所有结果中，模型预测对的比重
+    Recall = True positive rate (TPR): $TPR=\frac{TP}{TP + FN}$  # of positives
+
+    <!-- - Specificity = True negative rate (TNR): $TNR=\frac{TN}{FP + TN}$
+    False discovery rate (FDR): $FDR=\frac{FP}{FP + TP}$ -->
+
+    - 分类模型中所有判断正确的结果占总观测值得比重
+    Accuracy: $Acc=\frac{TP + TN}{TP + FN + FP + TN}$
+
+    - 精确率和召回率的调和平均值
+    F1-score: $F1=\frac{2TP}{2TP + FP + FN}$
+
+- ROC Curve - Receiver-Operator Characteristic
+    - AUC - Area Under Curve
+    - ROC-AUC 指的是 ROC 曲线下的面积
+    <img src="/images/ROC_AUC.jpg" width="500" /> 
+
+
+- Hit Rate
+    - 命中率（Hit Rate，HR），它反映的是在推荐序列中是否包含了用户真正点击的item，公式如下，N表示推荐次数，hit()函数表示是否命中，即用户选择的item是否在推荐序列中，存在则为1，反之则为0。
+    $$HR = \frac{1}{N} \cdot \sum_{i=1}^N hit(i)$$
+
+- Dice Coefficient
+    - 分割过程中的评价标准主要采用Dice相似系数(Dice Similariy Coefficient,DSC),Dice系数是一种集合相似度度量指标,通常用于计算两个样本的相似度,值的范围  ,分割结果最好时值为1,最差时值为0
+    $$Dice(P,T) = \frac{\left| P_{1} \wedge T_{1}  \right|}{(\left| P_{1} \right| + \left| T_{2} \right|)/2} \Leftrightarrow Dice = \frac{2TP}{FP+2TP+FN}$$
+    <img src="/images/dice_coefficient.jpg" width="300" /> 
+
+
+
+
+
+
+----------------------------------------------------------------
+<br>
+
+
+
+
+
 ### Linear Algorithms
 
 Recognize linear/nonlinear:
@@ -430,8 +501,12 @@ https://zhuanlan.zhihu.com/p/507101225
         - 如果正在运行回归任务，则特征适应度的一个关键指标是回归系数（所谓的 beta 系数），它显示了模型中特征的相对贡献。 有了这些信息，可以删除贡献很小或没有贡献的功能。
 
 ##### Wrapper - 包装法
-
+- 前向选择
+    - 从 0 特征开始，然后添加一个最大程度地减少错误的特征；然后添加另一个特征，依此类推。
+- 向后选择
+    - 模型从包含的所有特征开始并计算误差；然后它消除了一个可以进一步减少误差的特征。 重复该过程，直到保留所需数量的特征。
 ##### Embedded - 嵌入法
+- Random Forest / GBDT / XGBoost 的 feature_importance
 
 ##### Dimension Reduction - 降维
 PCA & LDA
