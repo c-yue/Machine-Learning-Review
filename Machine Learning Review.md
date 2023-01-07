@@ -21,7 +21,7 @@ $𝑌 = f(𝑋) + 𝑒$
 <=> make the cost/loss small
 
 #### Cost Function = Loss Function
-- $J$, $J(\theta)$
+- $J$, $J(\theta) = 1/2 \cdot \sum_{i=1}^m(\hat{y_i}-y_i)^2$
 - eg. $MSE=1/m \cdot \sum_{i=1}^m(\hat{y_i}-y_i)^2$  
 <=> $MSE=1/m \cdot \sum_{i=1}^m(𝑓(x_i)-y_i)^2$  
 $m$: the number of samples 
@@ -125,15 +125,14 @@ models (hyperparameters) in order to choose the best
 estimating its prediction error (generalization error) on new
 data
 
-Validation Sets
+- Validation Set
 <img src="/images/split_data.jpg" width="500" />  
 
-
-Cross-validation
-- Cut the training set in k separate folds
-- For each fold, train on the (k-1) remaining folds
-In practice: set k=5 or k=10
-<img src="/images/cross_validation_in_practice.jpg" width="500" />  
+- Cross-validation
+    - Cut the training set in k separate folds
+    - For each fold, train on the (k-1) remaining folds
+    - In practice: set k=5 or k=10
+    <img src="/images/cross_validation_in_practice.jpg" width="500" />  
 
 
 #### Classification Model Evaluation
@@ -211,16 +210,53 @@ Recognize linear/nonlinear:
         <img src="/images/vectorization_efficient.jpg" width="500" />  
         <img src="/images/vectorization_efficient2.jpg" width="500" />  
 
-
-
-- Single 
-- Multiple
+- Single - 一元回归
+- Multiple - 多元回归
 - Polynomial - 多项式回归
+    - make new features by cross multiplying existing ones
 
-- Logistics - 逻辑回归
+- Lasso/Ridge Regression
+    - cost func with regularization term
+    $$J(\theta) = 1/2 \cdot \sum_{i=1}^m(\hat{y_i}-y_i)^2\\
+    lasso\_reg = \lambda \cdot \sum_{i=1}^m|\beta_i| \\ 
+    ridge\_reg = \lambda \cdot \sum_{i=1}^m|\beta_i|^2\\
+    Cost = J(\theta) + lasso\_reg | ridge\_reg$$ 
+    
+    - $\lambda ≥ 0$ is	a	tuning	parameter	to	be	determined
+
 
 #### Logistic Regression
-#### Linear Discriminant Analysis
+
+- for binary classification
+- Logistic regression a linear method but predictions are transformed using the **logistic function (or sigmoid)**
+<img src="/images/sigmoid.jpg" width="300" /> 
+
+
+#### Linear Discriminant Analysis - 线性判别分析
+- 原理：给定训练集样例，设法将**样例投影到一条直线**上，使得**同类样例的投影点尽可能的接近、异类样例的投影点尽可能地远离**；在对**新样本分类时，将其投影点同样的投影到这条直线上**，再根据投影点的位置来确定新样例的位置
+- LDA can be used for **dimensionality reduction** by keeping the latent variables as new variables
+
+- LDA representation consists of statistical properties calculated for each class: means and the covariance matrix:
+    $\mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x_i\\
+    S_k = \sigma_k^2 = \frac{1}{m_k} \sum_{i=1}^{m_k} (x_i-\mu_k)^2$
+    <img src="/images/LDA.jpg" width="300" />  
+
+- Distribution diff inside classes in projected space:
+    $S_w = \sum_{k=1}^K S_k$
+
+- Distribution diff between classes (means diff, eg with 2 classes):
+<img src="/images/LDA_sb.jpg" width="500" /> 
+
+- Algorithms Steps 
+<img src="/images/LDA_steps.jpg" width="500" /> 
+
+- 与PCA的区别
+    - PCA主要是从特征的协方差角度，去找到比较好的投影方式，即选择样本点投影具有最大方差的方向；
+    - LDA则更多的是考虑了分类标签信息，寻求投影后不同类别之间数据点距离更大化以及同一类别数据点距离最小化，即**选择分类性能最好的方向**。
+    - PCA需要与其他算法结合使用
+    - LDA是一种监督式学习方法，除了可以降维外，还可以进行预测应用
+
+
 
 
 
@@ -510,8 +546,7 @@ https://zhuanlan.zhihu.com/p/507101225
 
 ##### Dimension Reduction - 降维
 PCA & LDA
-降维
-
+从应用的角度，**对无监督的任务使用PCA 进行降维，对有监督的则应用LDA**
 
 
 ----------------------------------------------------------------
