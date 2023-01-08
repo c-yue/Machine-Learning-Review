@@ -237,14 +237,14 @@ Recognize linear/nonlinear:
 
 #### Linear Discriminant Analysis - 线性判别分析
 - 原理：给定训练集样例，设法将**样例投影到一条直线**上，使得**同类样例的投影点尽可能的接近、异类样例的投影点尽可能地远离**；在对**新样本分类时，将其投影点同样的投影到这条直线上**，再根据投影点的位置来确定新样例的位置
+<img src="/images/LDA.jpg" width="300" />  
+
 - LDA can be used for **dimensionality reduction** by keeping the latent variables as new variables
 
-- LDA representation consists of statistical properties calculated for each class: means and the covariance matrix:  
-    $$\begin{aligned}
+- LDA representation consists of statistical properties calculated for each class: means and the covariance matrix: $$\begin{aligned}
     \mu_k &= \frac{1}{m_k} \sum_{i=1}^{m_k} x_i \\
     S_k = \sigma_k^2 &= \frac{1}{m_k} \sum_{i=1}^{m_k} (x_i-\mu_k)^2
     \end{aligned}$$
-<img src="/images/LDA.jpg" width="300" />  
 
 - Distribution diff inside classes in projected space:
     $$S_w = \sum_{k=1}^K S_k$$
