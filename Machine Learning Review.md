@@ -237,7 +237,7 @@ Recognize linear/nonlinear:
 - LDA can be used for **dimensionality reduction** by keeping the latent variables as new variables
 
 - LDA representation consists of statistical properties calculated for each class: means and the covariance matrix:
-$\mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x_i\\
+$\mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x_i \\
 S_k = \sigma_k^2 = \frac{1}{m_k} \sum_{i=1}^{m_k} (x_i-\mu_k)^2$
 <img src="/images/LDA.jpg" width="300" />  
 
