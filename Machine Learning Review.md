@@ -216,7 +216,7 @@ Recognize linear/nonlinear:
     - make new features by cross multiplying existing ones
 
 - Lasso/Ridge Regression
-    - cost func with regularization term
+    - cost func with regularization term  
     $$
     J(\theta) = 1/2 \cdot \sum_{i=1}^m(\hat{y_i}-y_i)^2\\
     lasso\_reg = \lambda \cdot \sum_{i=1}^m|\beta_i| \\ 
@@ -238,7 +238,7 @@ Recognize linear/nonlinear:
 - 原理：给定训练集样例，设法将**样例投影到一条直线**上，使得**同类样例的投影点尽可能的接近、异类样例的投影点尽可能地远离**；在对**新样本分类时，将其投影点同样的投影到这条直线上**，再根据投影点的位置来确定新样例的位置
 - LDA can be used for **dimensionality reduction** by keeping the latent variables as new variables
 
-- LDA representation consists of statistical properties calculated for each class: means and the covariance matrix:
+- LDA representation consists of statistical properties calculated for each class: means and the covariance matrix:  
     $\mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x_i \\
     S_k = \sigma_k^2 = \frac{1}{m_k} \sum_{i=1}^{m_k} (x_i-\mu_k)^2$
 <img src="/images/LDA.jpg" width="300" />  
