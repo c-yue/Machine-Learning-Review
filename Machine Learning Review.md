@@ -217,11 +217,15 @@ Recognize linear/nonlinear:
 
 - Lasso/Ridge Regression
     - cost func with regularization term  
-    $$
-    J(\theta) = 1/2 \cdot \sum_{i=1}^m(\hat{y_i}-y_i)^2\\ lasso\_reg = \lambda \cdot \sum_{i=1}^m|\beta_i| \\ ridge\_reg = \lambda \cdot \sum_{i=1}^m|\beta_i|^2\\ Cost = J(\theta) + lasso\_reg | ridge\_reg
-    $$ 
+    $$\begin{aligned}
+    J(\theta) &= 1/2 \cdot \sum_{i=1}^m(\hat{y_i}-y_i)^2\\
+    lasso\_reg &= \lambda \cdot \sum_{i=1}^m|\beta_i| \\ 
+    ridge\_reg &= \lambda \cdot \sum_{i=1}^m|\beta_i|^2\\
+    Cost &= J(\theta) + lasso\_reg | ridge\_reg
+    \end{aligned}$$
     
     - $\lambda ≥ 0$ is	a	tuning	parameter	to	be	determined
+
 
 
 #### Logistic Regression
@@ -236,11 +240,14 @@ Recognize linear/nonlinear:
 - LDA can be used for **dimensionality reduction** by keeping the latent variables as new variables
 
 - LDA representation consists of statistical properties calculated for each class: means and the covariance matrix:  
-    $\mu_k = \frac{1}{m_k} \sum_{i=1}^{m_k} x_i \\ S_k = \sigma_k^2 = \frac{1}{m_k} \sum_{i=1}^{m_k} (x_i-\mu_k)^2$
+    $$\begin{aligned}
+    \mu_k &= \frac{1}{m_k} \sum_{i=1}^{m_k} x_i \\
+    S_k = \sigma_k^2 &= \frac{1}{m_k} \sum_{i=1}^{m_k} (x_i-\mu_k)^2
+    \end{aligned}$$
 <img src="/images/LDA.jpg" width="300" />  
 
 - Distribution diff inside classes in projected space:
-    $S_w = \sum_{k=1}^K S_k$
+    $$S_w = \sum_{k=1}^K S_k$$
 
 - Distribution diff between classes (means diff, eg with 2 classes):
 <img src="/images/LDA_sb.jpg" width="500" /> 
