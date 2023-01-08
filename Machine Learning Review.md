@@ -216,16 +216,14 @@ Recognize linear/nonlinear:
     - make new features by cross multiplying existing ones
 
 - Lasso/Ridge Regression
-    - cost func with regularization term  
+    - cost func with regularization term, where $\lambda ≥ 0$ is a tuning parameter	to	be	determined
+
 $$\begin{aligned}
 J(\theta) &= 1/2 \cdot \sum_{i=1}^m(\hat{y_i}-y_i)^2\\
 lasso\_reg &= \lambda \cdot \sum_{i=1}^m|\beta_i| \\ 
 ridge\_reg &= \lambda \cdot \sum_{i=1}^m|\beta_i|^2\\
 Cost &= J(\theta) + lasso\_reg | ridge\_reg
 \end{aligned}$$
-
-    - $\lambda ≥ 0$ is	a	tuning	parameter	to	be	determined
-
 
 
 #### Logistic Regression
