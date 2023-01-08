@@ -243,8 +243,8 @@ Recognize linear/nonlinear:
 
 - LDA representation consists of statistical properties calculated for each class: means and the covariance matrix:  
     $\begin{aligned}
-    \mu_k &= \frac{1}{m_k} \sum_{i=1}^{m_k} x_i \\
-    S_k = \sigma_k^2 &= \frac{1}{m_k} \sum_{i=1}^{m_k} (x_i-\mu_k)^2
+    \mu _k &= \frac{1}{m_k} \sum_{i=1}^{m_k} x_i \\
+    S_k = \sigma _k^2 &= \frac{1}{m_k} \sum_{i=1}^{m_k} (x_i-\mu _k)^2
     \end{aligned}$
 
 - Distribution diff inside classes in projected space:
