@@ -217,12 +217,12 @@ Recognize linear/nonlinear:
 
 - Lasso/Ridge Regression
     - cost func with regularization term  
-    $$\begin{aligned}
+    $\begin{aligned}
     J(\theta) &= 1/2 \cdot \sum_{i=1}^m(\hat{y_i}-y_i)^2\\
     lasso\_reg &= \lambda \cdot \sum_{i=1}^m|\beta_i| \\ 
     ridge\_reg &= \lambda \cdot \sum_{i=1}^m|\beta_i|^2\\
     Cost &= J(\theta) + lasso\_reg | ridge\_reg
-    \end{aligned}$$
+    \end{aligned}$
     
     - $\lambda ≥ 0$ is	a	tuning	parameter	to	be	determined
 
@@ -241,10 +241,11 @@ Recognize linear/nonlinear:
 
 - LDA can be used for **dimensionality reduction** by keeping the latent variables as new variables
 
-- LDA representation consists of statistical properties calculated for each class: means and the covariance matrix: $$\begin{aligned}
+- LDA representation consists of statistical properties calculated for each class: means and the covariance matrix:  
+    $\begin{aligned}
     \mu_k &= \frac{1}{m_k} \sum_{i=1}^{m_k} x_i \\
     S_k = \sigma_k^2 &= \frac{1}{m_k} \sum_{i=1}^{m_k} (x_i-\mu_k)^2
-    \end{aligned}$$
+    \end{aligned}$
 
 - Distribution diff inside classes in projected space:
     $$S_w = \sum_{k=1}^K S_k$$
