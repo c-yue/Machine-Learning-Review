@@ -250,7 +250,7 @@ S_k = \sigma_k^2 &= \frac{1}{m_k} \sum_{i=1}^{m_k} (x_i-\mu_k)^2
     $$S_w = \sum_{k=1}^K S_k$$
 
 - Distribution diff between classes (means diff, eg with 2 classes):
-<img src="/images/LDA_sb.jpg" width="500" /> 
+<div align=center><img src="/images/LDA_sb.jpg" width="700" /></div> 
 
 - Algorithms Steps 
 <img src="/images/LDA_steps.jpg" width="500" /> 
@@ -442,36 +442,40 @@ https://zhuanlan.zhihu.com/p/86263786
             - learning faster because no flat result in the sigmoid (close to -1/1 when activated values are extreme)
 
 - Multi class & Softmax
-    - softmax  
-        - $a_j = \frac{e^{z_j}}{ \sum_{k=0}^{N-1}{e^{z_k} }}$
-        - $\begin{aligned}
-                \mathbf{a}(x) =
-                \begin{bmatrix}
-                    P(y = 1 | \mathbf{x}; \mathbf{w},b) \\
-                    \vdots \\
-                    P(y = N | \mathbf{x}; \mathbf{w},b)
-                    \end{bmatrix}
-                    =
-                    \frac{1}{ \sum_{k=1}^{N}{e^{z_k} }}
-                    \begin{bmatrix}
-                    e^{z_1} \\
-                    \vdots \\
-                    e^{z_{N}} \\
-                \end{bmatrix} 
-            \end{aligned}$
 
-        <img src="./images/softmax.jpg" width="500" />  
+- softmax
+
+$$a_j = \frac{e^{z_j}}{ \sum_{k=0}^{N-1}{e^{z_k} }}$$
+
+$$\begin{aligned}
+    \mathbf{a}(x) =
+    \begin{bmatrix}
+        P(y = 1 | \mathbf{x}; \mathbf{w},b) \\
+        \vdots \\
+        P(y = N | \mathbf{x}; \mathbf{w},b)
+        \end{bmatrix}
+        =
+        \frac{1}{ \sum_{k=1}^{N}{e^{z_k} }}
+        \begin{bmatrix}
+        e^{z_1} \\
+        \vdots \\
+        e^{z_{N}} \\
+    \end{bmatrix} 
+\end{aligned}$$
+
+<div align=center><img src="./images/softmax.jpg" width="500"/></div>
     
-    - softmax cost  
-        - $\begin{aligned} 
-                L(\mathbf{a},y)=\begin{cases} 
-                    -log(a_1), & \text{if y=1}.\\
-                        &\vdots\\
-                    -log(a_N), & \text{if y=N} 
-                \end{cases} 
-            \end{aligned}$
+- softmax cost 
+
+$$\begin{aligned} 
+    L(\mathbf{a},y)=\begin{cases} 
+        -log(a_1), & \text{if y=1}.\\
+            &\vdots\\
+        -log(a_N), & \text{if y=N} 
+    \end{cases} 
+\end{aligned}$$
         
-        <img src="./images/softmax_cost.jpg" width="500" />  
+<div align=center><img src="./images/softmax_cost.jpg" width="500" /></div>  
 
 - Adam Gradient Decent
     - if **a parameter w_j, or b seems to keep on moving in roughly the same direction**. graph_left -> **increase the learning rate for that parameter** & go faster in that direction. 
