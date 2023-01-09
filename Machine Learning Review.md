@@ -246,9 +246,9 @@ Recognize linear/nonlinear:
 
 $$\begin{aligned}
 J(\theta) &= 1/2 \cdot \sum_{i=1}^m(\hat{y_i}-y_i)^2\\
-lasso\_reg &= \lambda \cdot \sum_{i=1}^m|\beta_i| \\ 
-ridge\_reg &= \lambda \cdot \sum_{i=1}^m|\beta_i|^2\\
-Cost &= J(\theta) + lasso\_reg | ridge\_reg
+\text{lasso reg} &= \lambda \cdot \sum_{i=1}^m|\beta_i| \\ 
+\text{ridge reg} &= \lambda \cdot \sum_{i=1}^m|\beta_i|^2\\
+Cost &= J(\theta) + \text{lasso reg or ridge reg}
 \end{aligned}$$
 
 
