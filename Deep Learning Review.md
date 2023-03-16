@@ -15,24 +15,24 @@
     - For one example $x^{(i)}$:  
     $z^{(i)} = w^T x^{(i)} + b$  
     $\hat{y}^{(i)} = a^{(i)} = sigmoid(z^{(i)})$  
-    $ {L}(a^{(i)}, y^{(i)}) =  - y^{(i)}  \log(a^{(i)}) - (1-y^{(i)} )  \log(1-a^{(i)})$  
+    $ L(a^{(i)}, y^{(i)}) =  - y^{(i)}  \log(a^{(i)}) - (1-y^{(i)} )  \log(1-a^{(i)})$  
 
     - The cost is then computed by summing over all training examples:
-    $ J = \frac{1}{m} \sum_{i=1}^m {L}(a^{(i)}, y^{(i)})$  
+    $ J = \frac{1}{m} \sum_{i=1}^m L(a^{(i)}, y^{(i)})$  
 
 - Logistic regression derivatives
 <img src="/images/Logistic_regression_derivatives.png" width="500" /> 
 
 - Logistic Regression Gradient Descent
-    - Forward Propagation
+    - Forward Propagation  
     $A = \sigma(w^T X + b) = (a^{(1)}, a^{(2)}, ..., a^{(m-1)}, a^{(m)})$  
     $J = -\frac{1}{m}\sum_{i=1}^{m}(y^{(i)}\log(a^{(i)})+(1-y^{(i)})\log(1-a^{(i)}))$  
 
-    - Backward propagation
+    - Backward propagation  
     $ \frac{\partial J}{\partial w} = \frac{1}{m}X(A-Y)^T $  
     $ \frac{\partial J}{\partial b} = \frac{1}{m} \sum_{i=1}^m (a^{(i)}-y^{(i)}) $  
 
-    - $ \theta = \theta - \alpha \text{ } d\theta$
+    - $ \theta = \theta - \alpha \text{ } d\theta $  
 
 
 #### Shallow Neural Network
